@@ -1,0 +1,35 @@
+Folders on google drive, You need the folder ID for both.
+1. Remote shared folder or CopyFrom - This is the folder that you add to your google drive
+2. Remote owned folder or CopyTo - This is the folder that you own on google drive.
+
+The remote owned folder is treated as a temporary folder to allow for workflows involving "rclone crypt" 
+and dowloading to your hdd instead of keeping it on google drive.
+
+
+Folders accessible on your local filesystem (Gsuite G:, rclone mount X: or just a 12Tb hdd)
+1. GameDir - This is where new games are scanned.
+
+
+The process for aquiring a new title from CopyFrom is
+
+Stage 1. This happens on google drive (automated)
+
+1. Match a titleid from filename in CopyFrom
+2. Check if we own the game in database
+3. If we own it skip copying,
+   Otherwise create copy of file in CopyTo.
+
+Stage 2. Intermediary (I dont have a script for this personally right now)
+
+For me it is running rclone copy from "CopyTo" to a rclone crypt destination.
+For you it can be that or putting the games to a HDD or just google drive.
+
+Stage 3. Adding owned games (automated)
+
+1. Run through files in the GameDir off titleid.
+2  If titleid exists update directory if different,
+   If not then titleid is marked owned in database.
+   If we have a "eshop" info for the titleid its linked otherwise an orphan is created.
+   
+
+All games available to us are either in CopyFrom, CopyTo or GameDir.

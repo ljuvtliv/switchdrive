@@ -1,0 +1,5 @@
+node_modules/
+config/
+static/
+drive_credentials/credentials.json
+drive_credentials/token.json

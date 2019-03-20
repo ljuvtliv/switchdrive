@@ -1,0 +1,20 @@
+{
+    "type": "sqlite",
+    "database": "titledb/datastore.db",
+    "logging": false,
+    "synchronize": true,
+    "entities": [
+      "src/vesper/entity/**/*.ts"
+    ],
+    "migrations": [
+        "src/vesper/migration/**/*.ts"
+    ],
+   "subscribers": [
+      "src/vesper/subscriber/**/*.ts"
+   ],
+   "cli": {
+      "entitiesDir": "src/vesper/entity",
+      "migrationsDir": "src/vesper/migration",
+      "subscribersDir": "src/vesper/subscriber"
+   }
+}
